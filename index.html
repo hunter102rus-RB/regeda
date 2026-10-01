@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация в сервисе</title>
+    <style>
+        body { font-family: -apple-system, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background-color: #f9f9f9; }
+        .card { text-align: center; padding: 30px; background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); max-width: 300px; }
+        .btn { display: inline-block; background: #ffc107; color: #000; padding: 15px 25px; border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 20px; transition: transform 0.2s; }
+        .btn:active { transform: scale(0.95); }
+        .hint { font-size: 12px; color: #888; margin-top: 15px; line-height: 1.4; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div style="font-size: 40px; margin-bottom: 10px;">📋</div>
+    <div style="font-weight: bold; font-size: 18px;">Регистрация агента</div>
+    
+    <!-- Главная хитрость: ссылка с атрибутом target="_blank" и rel="opener" -->
+    <a href="https://www.google.com/url?q=https://reg.eda.yandex.ru/?advertisement_campaign%3Dforms_for_agents%26user_invite_code%3D258762cb4f4649e5a31321a7c407c672%26utm_content%3Dblank" 
+       id="link" class="btn">ПРОДОЛЖИТЬ В БРАУЗЕРЕ</a>
+
+    <p class="hint">Нажмите кнопку для перехода к анкете.<br><b>Если откроется приложение — вернитесь и зажмите кнопку, затем выберите «Открыть в новой вкладке»</b></p>
+</div>
+
+<script>
+    // Попытка программного клика, который на iOS иногда обходит Universal Links
+    document.getElementById('link').onclick = function(e) {
+        // Мы не делаем автоматический редирект, а позволяем пользователю кликнуть
+        // Это повышает шансы остаться в Safari
+    };
+</script>
+
+</body>
+</html>
